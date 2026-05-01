@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://chysq8k4pqse1"]
+[gd_scene load_steps=6 format=3 uid="uid://chysq8k4pqse1"]
 
 [ext_resource type="Texture2D" uid="uid://cwbgqskkss486" path="res://assets/Professionalism/5.png" id="1_cmsdc"]
 [ext_resource type="PackedScene" uid="uid://ditnc34615f4u" path="res://UI/bars.tscn" id="2_q4h8u"]
 [ext_resource type="PackedScene" uid="uid://dp3wcpkc5h3bu" path="res://UI/button.tscn" id="3_y6xtf"]
-[ext_resource type="Script" path="res://Scripts/eavesdropping.gd" id="4_7pf5k"]
+[ext_resource type="Script" uid="uid://o0g5222fjal6" path="res://Scripts/eavesdropping.gd" id="4_7pf5k"]
+[ext_resource type="PackedScene" uid="uid://cb2a1ywdqa32w" path="res://UI/speech_bubble.tscn" id="5_lffbm"]
 
 [node name="Eavesdropping" type="Control"]
 layout_mode = 3
@@ -32,3 +33,27 @@ offset_top = 587.0
 offset_right = 596.0
 offset_bottom = 649.0
 text = "START PRESENTATION"
+
+[node name="eavesdrop" parent="." instance=ExtResource("3_y6xtf")]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 587.0
+offset_right = 596.0
+offset_bottom = 649.0
+text = "EAVESDROP?"
+
+[node name="bubble_two" parent="." instance=ExtResource("5_lffbm")]
+layout_mode = 1
+offset_left = 537.0
+offset_top = -6.0
+offset_right = 13.0
+offset_bottom = -274.0
+scale = Vector2(0.6, 0.6)
+
+[node name="bubble_one" parent="." instance=ExtResource("5_lffbm")]
+layout_mode = 1
+offset_left = 576.0
+offset_top = 183.0
+offset_right = 52.0
+offset_bottom = -85.0
+scale = Vector2(0.5, 0.5)

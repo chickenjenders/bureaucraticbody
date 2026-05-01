@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cppuqgh1nuj1w"]
+[gd_scene load_steps=3 format=3 uid="uid://cppuqgh1nuj1w"]
 
 [ext_resource type="Texture2D" uid="uid://bu247f7uuhpsg" path="res://assets/Professionalism/6.png" id="1_vlash"]
+[ext_resource type="PackedScene" uid="uid://ditnc34615f4u" path="res://UI/bars.tscn" id="2_k6p6f"]
 
 [node name="presentation" type="Control"]
 layout_mode = 3
@@ -18,3 +19,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_vlash")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_k6p6f")]

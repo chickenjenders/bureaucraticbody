@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bohcudu1h2gdj"]
+[gd_scene load_steps=3 format=3 uid="uid://bohcudu1h2gdj"]
 
 [ext_resource type="Texture2D" uid="uid://b0jh6c073sc55" path="res://assets/Professionalism/7.png" id="1_foj1v"]
+[ext_resource type="PackedScene" uid="uid://ditnc34615f4u" path="res://UI/bars.tscn" id="2_yreuf"]
 
 [node name="meeting" type="Control"]
 layout_mode = 3
@@ -18,3 +19,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_foj1v")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_yreuf")]

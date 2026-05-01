@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxgshplus3shg"]
+[gd_scene load_steps=6 format=3 uid="uid://dxgshplus3shg"]
 
 [ext_resource type="Texture2D" uid="uid://clouenygu2bue" path="res://assets/Professionalism/4.png" id="1_ixttv"]
+[ext_resource type="Script" uid="uid://cnretjuulfqly" path="res://Scripts/closet.gd" id="1_t1d9b"]
 [ext_resource type="PackedScene" uid="uid://dp3wcpkc5h3bu" path="res://UI/button.tscn" id="2_0t2tp"]
+[ext_resource type="PackedScene" uid="uid://ditnc34615f4u" path="res://UI/bars.tscn" id="3_6vknk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t2tp"]
 bg_color = Color(0.94462216, 0.9455318, 0.9424274, 1)
@@ -23,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_t1d9b")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -61,3 +64,5 @@ offset_right = 418.0
 offset_bottom = 237.0
 theme_override_font_sizes/font_size = 20
 text = "GO TO WORK"
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_6vknk")]

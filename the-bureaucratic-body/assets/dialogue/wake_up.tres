@@ -1,0 +1,16 @@
+[gd_resource type="DialogueResource" load_steps=2 format=2]
+using_states = []
+first_title = "start"
+lines = {
+"start": {
+"type": "dialogue",
+"next_id": "end!",
+"character": "",
+"text": "Ah, another day ahead of me. I better get up.",
+"tags": [],
+"speeds": [],
+"time": ""
+}
+}
+titles = {}
+raw_text = ""

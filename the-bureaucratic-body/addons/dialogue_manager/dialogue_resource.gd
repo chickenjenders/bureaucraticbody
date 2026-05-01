@@ -30,7 +30,16 @@ const DialogueLine = preload("./dialogue_line.gd")
 ## be a title string or a stringified line number). Runs any mutations along the way and then returns
 ## the first dialogue line encountered.
 func get_next_dialogue_line(title: String = "", extra_game_states: Array = [], mutation_behaviour: DMConstants.MutationBehaviour = DMConstants.MutationBehaviour.Wait) -> DialogueLine:
-	return await Engine.get_singleton("DialogueManager").get_next_dialogue_line(self, title, extra_game_states, mutation_behaviour)
+	var dm = Engine.get_singleton("DialogueManager")
+	if dm == null:
+		var tries: int = 0
+		while dm == null and tries < 60:
+			await Engine.get_main_loop().process_frame
+			dm = Engine.get_singleton("DialogueManager")
+			tries += 1
+		if dm == null:
+			assert(false, "DialogueManager singleton not available")
+	return await dm.get_next_dialogue_line(self , title, extra_game_states, mutation_behaviour)
 
 
 ## Get the list of any titles found in the file.

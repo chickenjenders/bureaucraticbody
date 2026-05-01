@@ -1,0 +1,13 @@
+~ wake_up
+
+# Character thoughts appear first
+Ah, another day ahead of me. I better get up.
+
+# The dialogue ends here, which will trigger the signal
+=> END
+
+~ pick_outfit
+
+Today is my big presentation at work in front of the department and a member of the board. I need to choose an outfit that will leave a good impression.
+=> END
+

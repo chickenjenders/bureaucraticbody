@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxgshplus3shg"]
+
+[ext_resource type="Texture2D" uid="uid://clouenygu2bue" path="res://assets/Professionalism/4.png" id="1_ixttv"]
+[ext_resource type="PackedScene" uid="uid://dp3wcpkc5h3bu" path="res://UI/button.tscn" id="2_0t2tp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t2tp"]
+bg_color = Color(0.94462216, 0.9455318, 0.9424274, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="closet" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ixttv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 192.0
+offset_right = 853.0
+offset_bottom = 488.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0t2tp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 69.0
+offset_right = 600.0
+offset_bottom = 195.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "You have chosen how to present yourself today."
+
+[node name="Button" parent="Label" instance=ExtResource("2_0t2tp")]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 166.0
+offset_right = 418.0
+offset_bottom = 237.0
+theme_override_font_sizes/font_size = 20
+text = "GO TO WORK"

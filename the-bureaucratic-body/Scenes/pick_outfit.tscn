@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfn2kamk7ybua"]
+
+[ext_resource type="Texture2D" uid="uid://i58qmgavyntt" path="res://assets/Professionalism/3.png" id="1_fucg1"]
+[ext_resource type="PackedScene" uid="uid://dp3wcpkc5h3bu" path="res://UI/button.tscn" id="2_pkh8q"]
+
+[node name="PickOutfit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fucg1")
+
+[node name="Button" parent="." instance=ExtResource("2_pkh8q")]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 357.0
+offset_right = 463.0
+offset_bottom = 442.0
+theme_override_font_sizes/font_size = 30
+text = "CHOOSE OUTFIT"

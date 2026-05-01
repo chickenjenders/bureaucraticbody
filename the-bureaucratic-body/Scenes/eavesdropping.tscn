@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://chysq8k4pqse1"]
+[gd_scene load_steps=5 format=3 uid="uid://chysq8k4pqse1"]
 
 [ext_resource type="Texture2D" uid="uid://cwbgqskkss486" path="res://assets/Professionalism/5.png" id="1_cmsdc"]
 [ext_resource type="PackedScene" uid="uid://ditnc34615f4u" path="res://UI/bars.tscn" id="2_q4h8u"]
+[ext_resource type="PackedScene" uid="uid://dp3wcpkc5h3bu" path="res://UI/button.tscn" id="3_y6xtf"]
+[ext_resource type="Script" path="res://Scripts/eavesdropping.gd" id="4_7pf5k"]
 
 [node name="Eavesdropping" type="Control"]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_7pf5k")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -21,3 +24,11 @@ grow_vertical = 2
 texture = ExtResource("1_cmsdc")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_q4h8u")]
+
+[node name="Button" parent="." instance=ExtResource("3_y6xtf")]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 587.0
+offset_right = 596.0
+offset_bottom = 649.0
+text = "START PRESENTATION"

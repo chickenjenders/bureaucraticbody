@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfn2kamk7ybua"]
+[gd_scene load_steps=4 format=3 uid="uid://bfn2kamk7ybua"]
 
 [ext_resource type="Texture2D" uid="uid://i58qmgavyntt" path="res://assets/Professionalism/3.png" id="1_fucg1"]
 [ext_resource type="PackedScene" uid="uid://dp3wcpkc5h3bu" path="res://UI/button.tscn" id="2_pkh8q"]
+[ext_resource type="Script" path="res://Scripts/pick_outfit.gd" id="3_kl9bm"]
 
 [node name="PickOutfit" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_kl9bm")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cppuqgh1nuj1w"]
+[gd_scene load_steps=5 format=3 uid="uid://cppuqgh1nuj1w"]
 
 [ext_resource type="Texture2D" uid="uid://bu247f7uuhpsg" path="res://assets/Professionalism/6.png" id="1_vlash"]
 [ext_resource type="PackedScene" uid="uid://ditnc34615f4u" path="res://UI/bars.tscn" id="2_k6p6f"]
+[ext_resource type="PackedScene" uid="uid://dp3wcpkc5h3bu" path="res://UI/button.tscn" id="3_ylinv"]
+[ext_resource type="Script" path="res://Scripts/presentation.gd" id="4_81e2h"]
 
 [node name="presentation" type="Control"]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_81e2h")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -21,3 +24,11 @@ grow_vertical = 2
 texture = ExtResource("1_vlash")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_k6p6f")]
+
+[node name="Button" parent="." instance=ExtResource("3_ylinv")]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 676.0
+offset_right = 621.0
+offset_bottom = 735.0
+text = "END PRESENTATION"

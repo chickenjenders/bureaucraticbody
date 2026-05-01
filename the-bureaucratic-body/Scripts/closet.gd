@@ -10,3 +10,4 @@ func _ready() -> void:
 func _on_outfit_button_pressed() -> void:
 	professionalism_bar.value = max(0.0, professionalism_bar.value - 1.0)
 	anxiety_bar.value = max(0.0, anxiety_bar.value - 1.0)
+	get_tree().change_scene_to_file("res://Scenes/eavesdropping.tscn")

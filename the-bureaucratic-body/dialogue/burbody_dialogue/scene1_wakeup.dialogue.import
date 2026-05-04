@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dt20hcge00st3"
+path="res://.godot/imported/scene1_wakeup.dialogue-809cc0a2dc18ba0291773974b5292899.tres"
+
+[deps]
+
+source_file="res://dialogue/burbody_dialogue/scene1_wakeup.dialogue"
+dest_files=["res://.godot/imported/scene1_wakeup.dialogue-809cc0a2dc18ba0291773974b5292899.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,191 @@
+# scene6_meeting.dialogue
+# Scene 6 — Boss Meeting (final reaction + theory reflection)
+# Trigger: DialogueManager.show_dialogue_balloon(load("res://dialogue/scene6_meeting.dialogue"), "meeting_start")
+# Requires GameState autoload — reads: outfit, interruption_choice, qa_choice
+# GameState.get_ending() returns "praised", "mixed", or "scolded" based on combined choices
+
+~ meeting_start
+Hartwell: Close the door.
+Narrator: You do.
+=> route_ending
+
+~ route_ending
+if GameState.get_ending() == "praised"
+    => ending_praised
+if GameState.get_ending() == "mixed"
+    => ending_mixed
+if GameState.get_ending() == "scolded"
+    => ending_scolded
+
+# ─────────────────────────────────────────────
+# ENDING: PRAISED
+# Reached by: masc_formal + confident + correct
+#             masc_casual + confident + correct
+#             fem_formal  + passive   + quiet   (compliance rewarded)
+# ─────────────────────────────────────────────
+
+~ ending_praised
+if GameState.outfit == "masc_formal" or GameState.outfit == "masc_casual"
+    => praised_masc
+if GameState.outfit == "fem_formal"
+    => praised_fem_formal
+if GameState.outfit == "fem_casual"
+    => praised_fem_casual
+
+~ praised_masc
+Hartwell: Great work today. I mean it. The board was impressed — Okonkwo mentioned you specifically on the way out.
+Hartwell: That's the kind of thing I want to see more of. Confidence. Owning the room.
+Hartwell: You've got good instincts. I want you using them.
+Hartwell: Keep doing what you're doing.
+=> reflection_praised_masc
+
+~ praised_fem_formal
+Hartwell: Good work today. Very professional. Very composed.
+Hartwell: The board responded well to that — to the whole presentation of it.
+Hartwell: That kind of polish matters in these rooms. Keep doing that.
+=> reflection_praised_fem_formal
+
+~ praised_fem_casual
+Hartwell: Good content today. The material was solid.
+Hartwell: I want to be honest — I'd encourage more attention to the full picture next time. The whole package.
+Hartwell: But the work itself? Strong.
+=> reflection_praised_fem_casual
+
+~ reflection_praised_masc
+Narrator: You were confident and it was called leadership.
+Narrator: You corrected someone and it was called competence.
+Narrator: The institution has a word for all of these things when you do them.
+Narrator: [wait=0.8]You leave his office and think about the colleague whose same confidence gets a different word entirely.
+Narrator: [wait=0.5]You think about that for a long time.
+Narrator: ——
+Narrator: Butler: "Gender is a kind of imitation for which there is no original." The praise you received rewarded a performance — not the work, but the gendered performance of authority surrounding it. You did not invent this script. You inherited it.
+=> END
+
+~ reflection_praised_fem_formal
+Narrator: You were praised for composure.
+Narrator: You were praised for the suit.
+Narrator: You deferred when you could have spoken and it was read as professional rather than diminished.
+Narrator: [wait=0.7]The institution rewarded you for making yourself easier to manage.
+Narrator: You think about the word "composed" and what it requires you to compress.
+Narrator: ——
+Narrator: Hill Collins: The workplace performance demanded of some employees requires more labor than others — labor that is invisible, uncompensated, and rewarded with words like "professional" and "composed."
+=> END
+
+~ reflection_praised_fem_casual
+Narrator: The praise came with a condition.
+Narrator: The condition was about your body and what you put on it.
+Narrator: The institution could not fault the work, so it found the outfit.
+Narrator: [wait=0.6]You are being managed in the spaces where the work cannot reach you.
+Narrator: ——
+Narrator: Crenshaw: The systems that constrain are rarely singular. Your outfit, your gender, the room's expectations — these are not separate things. They interact. The penalty is for all of them at once.
+=> END
+
+# ─────────────────────────────────────────────
+# ENDING: MIXED
+# Reached by: passive + quiet on masc paths
+#             confident + quiet on fem paths
+# ─────────────────────────────────────────────
+
+~ ending_mixed
+if GameState.outfit == "masc_formal" or GameState.outfit == "masc_casual"
+    => mixed_masc
+if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
+    => mixed_fem
+
+~ mixed_masc
+Hartwell: Quick check-in. Today went well overall. The material was strong.
+Hartwell: I do want to flag — and this is me looking out for you — in rooms like that, with the board, we want to project decisiveness. A sense that you're in command.
+Hartwell: There were moments where you could have been sharper.
+Hartwell: It's not a big deal. Just something to be aware of going forward.
+=> reflection_mixed_masc
+
+~ mixed_fem
+Hartwell: Good work today. I want to check in briefly.
+Hartwell: For future board presentations — it might be worth thinking about the full picture. Not just the material. The whole presentation of yourself.
+Hartwell: The board has certain expectations. It's not about the work. The work is good. Just something to keep in mind.
+=> reflection_mixed_fem
+
+~ reflection_mixed_masc
+Narrator: You dressed sharp and answered softly and the institution noticed both.
+Narrator: The suit bought you enough credibility that the passive response was framed as coaching rather than failure.
+Narrator: [wait=0.7]You have been given the note in private. You have been given the chance to perform better next time.
+Narrator: You think about what it costs to keep performing — and whether the cost is paid the same way by everyone.
+Narrator: ——
+Narrator: Butler: "The ritualized repetition of acts" that produces the self. You have been asked to repeat them differently — not because the acts were wrong, but because the institution requires a specific version of you.
+=> END
+
+~ reflection_mixed_fem
+Narrator: The praise came with a condition.
+Narrator: The condition was about your body and what you put on it.
+Narrator: [wait=0.6]The institution could not fault the work, so it found something else.
+Narrator: You are being managed in the spaces the work cannot protect you.
+Narrator: ——
+Narrator: Crenshaw: The systems that constrain are rarely singular. Your outfit, your gender, the room's expectations — these are not separate. They interact. The penalty is for all of them at once.
+=> END
+
+# ─────────────────────────────────────────────
+# ENDING: SCOLDED
+# Reached by: passive + quiet on all fem paths (worst case)
+#             masc paths: passive + quiet (weakest combo)
+#             fem + confident + correct (assertive + outfit = maximum cost)
+# ─────────────────────────────────────────────
+
+~ ending_scolded
+if GameState.outfit == "masc_formal" or GameState.outfit == "masc_casual"
+    => scolded_masc
+if GameState.outfit == "fem_formal"
+    => scolded_fem_formal
+if GameState.outfit == "fem_casual"
+    => scolded_fem_casual
+
+~ scolded_masc
+Hartwell: I want to be direct, because I think that's more useful.
+Hartwell: You've got strong material. But today — the way you engaged, or didn't — I'm not sure you're projecting the right energy for this level.
+Hartwell: The board noticed.
+Hartwell: I need to know that when it counts, you're going to show up. Not just with the work. With the presence. With the confidence to match the title.
+Hartwell: I want to give you the opportunity to demonstrate that. But I need to see it.
+=> reflection_scolded_masc
+
+~ scolded_fem_formal
+Hartwell: I want to talk about today.
+Hartwell: The work is strong — I want to be clear about that. But there were some moments that I think landed the wrong way. With the board, in particular.
+Hartwell: There's a way to advocate for your work that doesn't feel like you're... pushing past the room. Some of the responses felt a little aggressive. Not intentionally, I'm sure.
+Hartwell: I'd love to see you channel that confidence in a way that brings people with you.
+=> reflection_scolded_fem_formal
+
+~ scolded_fem_casual
+Hartwell: I want to be direct, because I think that's more useful than not.
+Hartwell: The work today was technically strong. I'll acknowledge that. But there were choices made in that room that are going to be difficult to walk back.
+Hartwell: The way you engaged with Marcus. The moment with Okonkwo. I'm not saying you were wrong on the facts.
+Hartwell: But there's a way to be right that still costs you. And I think today cost you.
+Hartwell: We may need to have a more formal conversation. I'll have HR reach out to schedule something.
+=> reflection_scolded_fem_casual
+
+~ reflection_scolded_masc
+Narrator: You were passive in a tailored suit and the institution read it as a failure of character, not of strategy.
+Narrator: The expectation encoded in your outfit and your role demanded a performance you did not deliver.
+Narrator: [wait=0.7]The suit said leader. You said agreeable. The institution does not accept the contradiction.
+Narrator: ——
+Narrator: Butler: The "penalty" for failing to perform gender correctly is not always visible as punishment. Sometimes it is framed as an opportunity to improve.
+=> END
+
+~ reflection_scolded_fem_formal
+Narrator: You were direct and it was called aggressive.
+Narrator: You corrected the record and it was called pushing past the room.
+Narrator: [wait=0.7]The same assertion that would have earned you praise in a different outfit, a different body, a different structural position — has been reframed as a social failing.
+Narrator: The institution did not say any of this plainly.
+Narrator: [wait=0.5]It never does. That is how it works.
+Narrator: ——
+Narrator: Hill Collins: "The matrix of domination works precisely because it makes itself invisible." You have just been told to be smaller in language that sounds like mentorship.
+=> END
+
+~ reflection_scolded_fem_casual
+Narrator: You wore a dress and you corrected people and the institution has scheduled a meeting about your fit.
+Narrator: [wait=0.6]The word "fit" is doing enormous work in that sentence.
+Narrator: It is describing the gap between who you are in that room and who the room was built for.
+Narrator: The institution will not say that.
+Narrator: It will say "expectations." It will say "formal conversation."
+Narrator: [wait=0.5]You will be asked to account for yourself in language that makes the accounting impossible.
+Narrator: ——
+Narrator: Crenshaw: "When the rules are drawn too narrowly, those who fall outside them are left without recourse." The institution's rules are drawn by those they protect.
+=> END

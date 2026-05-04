@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ox7cagoi3bs3"
+path="res://.godot/imported/scene2_outfit_reason.dialogue-4c53aa121b34b69dddf442b7f501c6be.tres"
+
+[deps]
+
+source_file="res://dialogue/burbody_dialogue/scene2_outfit_reason.dialogue"
+dest_files=["res://.godot/imported/scene2_outfit_reason.dialogue-4c53aa121b34b69dddf442b7f501c6be.tres"]
+
+[params]
+
+defaults=true

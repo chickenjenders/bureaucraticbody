@@ -1,0 +1,10 @@
+# scene2_outfit_reason.dialogue
+# Scene 2 — Pick Outfit (board meeting context, reason for choice)
+# Trigger: DialogueManager.show_dialogue_balloon(load("res://dialogue/scene2_outfit_reason.dialogue"), "outfit_intro")
+
+~ outfit_intro
+Narrator: The board will be in the room.
+Narrator: V. Okonkwo. Two other names you recognize from the company website.
+Narrator: They will see you before they hear your numbers.
+Narrator: [wait=0.6]What does today require of you?
+=> END

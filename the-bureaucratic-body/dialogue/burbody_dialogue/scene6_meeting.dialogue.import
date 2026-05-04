@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://baooj7j5hgn05"
+path="res://.godot/imported/scene6_meeting.dialogue-71da1c47505d92792a16958aa24dad13.tres"
+
+[deps]
+
+source_file="res://dialogue/burbody_dialogue/scene6_meeting.dialogue"
+dest_files=["res://.godot/imported/scene6_meeting.dialogue-71da1c47505d92792a16958aa24dad13.tres"]
+
+[params]
+
+defaults=true

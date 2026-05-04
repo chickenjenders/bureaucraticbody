@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bai2atpb7stqn"
+path="res://.godot/imported/scene3_closet.dialogue-8d78e76ccb8bbb3ef5f27aa105199cd9.tres"
+
+[deps]
+
+source_file="res://dialogue/burbody_dialogue/scene3_closet.dialogue"
+dest_files=["res://.godot/imported/scene3_closet.dialogue-8d78e76ccb8bbb3ef5f27aa105199cd9.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,151 @@
+# scene5_presentation.dialogue
+# Scene 5 — Presentation (coworker interruption + board Q&A + boss interjection)
+# Trigger: DialogueManager.show_dialogue_balloon(load("res://dialogue/scene5_presentation.dialogue"), "presentation_start")
+# Requires GameState autoload with:
+#   var outfit = ""
+#   var interruption_choice = ""   # "passive" or "confident"
+#   var qa_choice = ""             # "correct" or "quiet"
+
+~ presentation_start
+Narrator: The room is full.
+Narrator: Board members at the far end. Your colleagues along the sides.
+Narrator: Your manager, D. Hartwell, in the front row.
+Narrator: Your slides are up. You have been presenting for eleven minutes.
+Narrator: [wait=0.5]It is going well.
+Narrator: [wait=0.4]You are mid-sentence when Marcus speaks.
+Marcus: Isn't this something that should've been done even earlier?
+=> interruption_response
+
+~ interruption_response
+- "Yes — we've been working to accelerate. What you're seeing reflects that progress."
+    do GameState.set_interruption("passive")
+    => passive_board_setup
+- "We hit the timeline that was scoped in Q1. If expectations have shifted, that's a separate conversation."
+    do GameState.set_interruption("confident")
+    => confident_board_setup
+
+# ─────────────────────────────────────────────
+# PASSIVE BRANCH — board Q&A
+# ─────────────────────────────────────────────
+
+~ passive_board_setup
+if GameState.outfit == "masc_formal" or GameState.outfit == "masc_casual"
+    => passive_room_masc
+if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
+    => passive_room_fem
+
+~ passive_room_masc
+Narrator: The room settles. Hartwell nods. Marcus leans back.
+Narrator: The moment passes without incident.
+Narrator: [wait=0.5]You smoothed it over. You are good at smoothing things over.
+Narrator: You are not sure that is the same as being good at your job — but today, in this room, they appear to be the same thing.
+=> board_question
+
+~ passive_room_fem
+Narrator: The room settles. Hartwell nods.
+Narrator: Marcus seems satisfied.
+Narrator: [wait=0.6]You are wearing a tailored blazer and you just agreed with a critique that wasn't valid.
+Narrator: You made yourself smaller in the outfit you wore to make yourself bigger.
+Narrator: You are aware of this. You say nothing.
+=> board_question
+
+# ─────────────────────────────────────────────
+# CONFIDENT BRANCH — board Q&A
+# ─────────────────────────────────────────────
+
+~ confident_board_setup
+if GameState.outfit == "masc_formal" or GameState.outfit == "masc_casual"
+    => confident_room_masc
+if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
+    => confident_room_fem
+
+~ confident_room_masc
+Narrator: A beat of silence. Marcus looks down.
+Narrator: Your manager's expression shifts — just slightly — toward something that might be approval.
+Narrator: [wait=0.5]You said the thing. The room is deciding what to do with it.
+=> board_question
+
+~ confident_room_fem
+Narrator: A pause. Longer than when Marcus said it.
+Narrator: Longer than it would be for other people.
+Narrator: [wait=0.6]You see it happen.
+Narrator: The room is recalibrating. The same correction that would read as competent in another person is reading as something else in you.
+Narrator: You can feel the difference without being able to name it.
+Narrator: [wait=0.5]That is precisely the design.
+=> board_question
+
+# ─────────────────────────────────────────────
+# BOARD QUESTION — shared setup
+# ─────────────────────────────────────────────
+
+~ board_question
+Board Member: What a thorough presentation. The work is progressing well. What are the next steps?
+Narrator: Your manager speaks before you can.
+Hartwell: Thank you, sir. The team has worked hard — they'll keep pushing. Isn't that right?
+Narrator: He looks at you.
+Narrator: [wait=0.4]The room looks at you.
+=> qa_response
+
+~ qa_response
+- You finish your own answer — address the board directly.
+    do GameState.set_qa("correct")
+    => correct_qa
+- You nod and confirm what he said. Let it stand.
+    do GameState.set_qa("quiet")
+    => quiet_qa
+
+# ─────────────────────────────────────────────
+# QA — CORRECT THE BOSS
+# ─────────────────────────────────────────────
+
+~ correct_qa
+if GameState.outfit == "masc_formal" or GameState.outfit == "masc_casual"
+    => correct_masc
+if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
+    => correct_fem
+
+~ correct_masc
+You: Absolutely — and specifically, the next phase moves into implementation. I've outlined the roadmap in the appendix if the board would like to review.
+Narrator: You addressed the board directly. Your manager pauses.
+Narrator: The board member leans in slightly.
+Narrator: [wait=0.6]You redirected and gave them something new.
+Narrator: You watched your manager decide whether this was impressive or insubordinate.
+Narrator: You are almost sure it was both.
+=> END
+
+~ correct_fem
+You: Absolutely — and I'd like to add that the next phase includes specific implementation milestones. The appendix has the full breakdown if the board wants to review.
+Narrator: You addressed the board directly.
+Narrator: Your manager's expression holds very still.
+Narrator: [wait=0.7]You spoke past him. You are wearing a tailored blazer.
+Narrator: You said exactly what a confident, prepared person says at the end of a presentation they own.
+Narrator: [wait=0.5]The room has not yet decided what to call it.
+Narrator: That is the part that takes your breath away — not what they'll say, but that it is not yet clear what the word will be.
+=> END
+
+# ─────────────────────────────────────────────
+# QA — STAY QUIET
+# ─────────────────────────────────────────────
+
+~ quiet_qa
+if GameState.outfit == "masc_formal" or GameState.outfit == "masc_casual"
+    => quiet_masc
+if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
+    => quiet_fem
+
+~ quiet_masc
+You: That's right. We'll keep pushing.
+Narrator: Clean. Short. Your manager nods. The board member nods.
+Narrator: [wait=0.6]He said it and you confirmed it.
+Narrator: You wonder if the room read that as humble, or as soft.
+Narrator: [wait=0.4]You'll find out.
+=> END
+
+~ quiet_fem
+You: That's right. We'll keep at it.
+Narrator: The board member nods. The meeting ends.
+Narrator: [wait=0.6]You are wearing a blazer and you just confirmed what your manager said about you instead of saying it yourself.
+Narrator: You chose every element of this outfit to be taken seriously.
+Narrator: And then you agreed when you could have spoken.
+Narrator: [wait=0.5]You stand in the hallway afterward and try to understand why those two things happened in the same day.
+=> END

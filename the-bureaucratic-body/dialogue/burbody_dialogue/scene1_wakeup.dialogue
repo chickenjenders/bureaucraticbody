@@ -1,0 +1,13 @@
+# scene1_wakeup.dialogue
+# Scene 1 — Wake Up
+# Trigger from your Godot scene: DialogueManager.show_dialogue_balloon(load("res://dialogue/scene1_wakeup.dialogue"), "wakeup")
+
+~ wakeup
+Narrator: The ceiling is familiar.
+Narrator: Tuesday.
+Narrator: You have a quarterly review today. Your department presents to the board this afternoon.
+Narrator: Leadership. Stakeholders. People whose names are on the building.
+Narrator: You have been preparing for three weeks.
+Narrator: The work is good.
+Narrator: [wait=0.8]You know it is good.
+=> END

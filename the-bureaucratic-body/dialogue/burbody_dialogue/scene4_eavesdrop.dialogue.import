@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dxk8uapvioyyn"
+path="res://.godot/imported/scene4_eavesdrop.dialogue-207582fa59b9ef339e2a61a14fe60765.tres"
+
+[deps]
+
+source_file="res://dialogue/burbody_dialogue/scene4_eavesdrop.dialogue"
+dest_files=["res://.godot/imported/scene4_eavesdrop.dialogue-207582fa59b9ef339e2a61a14fe60765.tres"]
+
+[params]
+
+defaults=true

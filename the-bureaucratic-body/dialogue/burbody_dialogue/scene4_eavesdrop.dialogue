@@ -1,0 +1,143 @@
+# scene4_eavesdrop.dialogue
+# Scene 4 — Eavesdropping
+# The player clicks chattering text bubbles to reveal each line.
+# Structure: each ~ title is one "bubble click" — call the next title when player taps the bubble.
+# Trigger the correct outfit branch via:
+#   DialogueManager.show_dialogue_balloon(load("res://dialogue/scene4_eavesdrop.dialogue"), GameState.outfit + "_bubble1")
+# Requires GameState autoload with: var outfit = ""
+
+# ─────────────────────────────────────────────
+# MASCULINE FORMAL PATH
+# ─────────────────────────────────────────────
+
+~ masc_formal_setup
+Narrator: You are outside the meeting room.
+Narrator: You can hear voices inside.
+Narrator: [wait=0.4]You should not eavesdrop. That would be unprofessional.
+Narrator: [wait=0.6]You pause.
+Narrator: Did they just say your name?
+=> END
+
+~ masc_formal_bubble1
+Coworker A: Wow — you can really tell this presentation is a big deal just by the outfit.
+=> END
+
+~ masc_formal_bubble2
+Coworker B: I know, right? I've never seen them so put together.
+=> END
+
+~ masc_formal_bubble3
+Coworker A: They should just dress like that every day.
+=> END
+
+~ masc_formal_bubble4
+Narrator: [Laughter from inside the room.]
+=> END
+
+~ masc_formal_reflection
+Narrator: You step back from the door.
+Narrator: They weren't saying anything wrong.
+Narrator: [wait=0.6]That's the part that stays with you — they were complimenting you, and somehow it still felt like being measured.
+=> END
+
+# ─────────────────────────────────────────────
+# MASCULINE CASUAL PATH
+# ─────────────────────────────────────────────
+
+~ masc_casual_setup
+Narrator: You are outside the meeting room.
+Narrator: You can hear voices inside.
+Narrator: [wait=0.4]You should not eavesdrop. That would be unprofessional.
+Narrator: [wait=0.6]You pause.
+Narrator: Did they just say your name?
+=> END
+
+~ masc_casual_bubble1
+Coworker A: Is that what they're wearing today? Kind of casual for a board presentation.
+=> END
+
+~ masc_casual_bubble2
+Coworker B: I mean — it works for them, right? They've got that thing where they can pull it off.
+=> END
+
+~ masc_casual_bubble3
+Coworker A: Sure. I guess. Just — board day.
+=> END
+
+~ masc_casual_reflection
+Narrator: You step back.
+Narrator: "They've got that thing where they can pull it off."
+Narrator: [wait=0.6]You file that away without knowing what to do with it.
+Narrator: You dressed the way you dressed. You didn't think about it this much before you left the house.
+=> END
+
+# ─────────────────────────────────────────────
+# FEMININE FORMAL PATH
+# ─────────────────────────────────────────────
+
+~ fem_formal_setup
+Narrator: You are outside the meeting room.
+Narrator: You can hear voices inside.
+Narrator: [wait=0.4]You should not eavesdrop. That would be unprofessional.
+Narrator: [wait=0.6]You pause.
+Narrator: Did they just say your name?
+=> END
+
+~ fem_formal_bubble1
+Coworker A: Very polished today.
+=> END
+
+~ fem_formal_bubble2
+Coworker B: Very. Almost too much, don't you think? Like — it's a lot.
+=> END
+
+~ fem_formal_bubble3
+Coworker A: It's professional.
+=> END
+
+~ fem_formal_bubble4
+Coworker B: It's trying very hard to be professional. There's a difference.
+=> END
+
+~ fem_formal_reflection
+Narrator: You step back from the door.
+Narrator: You dressed to be taken seriously.
+Narrator: [wait=0.6]They have turned that into evidence of something wrong with you.
+Narrator: You stand in the hallway and try to locate where, exactly, the line is.
+Narrator: [wait=0.5]And whether it was ever meant for you to find it.
+=> END
+
+# ─────────────────────────────────────────────
+# FEMININE CASUAL PATH
+# ─────────────────────────────────────────────
+
+~ fem_casual_setup
+Narrator: You are outside the meeting room.
+Narrator: You can hear voices inside.
+Narrator: [wait=0.4]You should not eavesdrop. That would be unprofessional.
+Narrator: [wait=0.6]You pause.
+Narrator: Did they just say your name?
+=> END
+
+~ fem_casual_bubble1
+Coworker A: They look nice today. Very approachable.
+=> END
+
+~ fem_casual_bubble2
+Coworker B: Sure, but — board day, though? I'd have gone more formal.
+=> END
+
+~ fem_casual_bubble3
+Coworker A: It's just — softer than I'd expect for this kind of meeting.
+=> END
+
+~ fem_casual_bubble4
+Coworker B: I just hope it doesn't read as not taking it seriously.
+=> END
+
+~ fem_casual_reflection
+Narrator: Softer than expected.
+Narrator: You chose this outfit because you had three weeks of hard work to speak for you.
+Narrator: [wait=0.6]You didn't think you needed the clothes to do it too.
+Narrator: You are beginning to understand that was naive.
+=> END

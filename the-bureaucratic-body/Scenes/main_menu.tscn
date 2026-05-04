@@ -23,10 +23,15 @@ grow_vertical = 2
 texture = ExtResource("1_48xlc")
 
 [node name="Button" parent="." instance=ExtResource("2_1ehe0")]
-layout_mode = 0
-offset_left = 394.0
-offset_top = 574.0
-offset_right = 632.0
-offset_bottom = 649.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -118.0
+offset_top = -194.0
+offset_right = 120.0
+offset_bottom = -119.0
 theme_override_font_sizes/font_size = 30
 text = "START"

@@ -27,19 +27,29 @@ texture = ExtResource("1_cmsdc")
 [node name="CanvasLayer" parent="." instance=ExtResource("2_q4h8u")]
 
 [node name="Button" parent="." instance=ExtResource("3_y6xtf")]
-layout_mode = 0
-offset_left = 368.0
-offset_top = 587.0
-offset_right = 596.0
-offset_bottom = 649.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -181.0
+offset_right = 84.0
+offset_bottom = -119.0
 text = "START PRESENTATION"
 
 [node name="eavesdrop" parent="." instance=ExtResource("3_y6xtf")]
-layout_mode = 0
-offset_left = 370.0
-offset_top = 584.0
-offset_right = 598.0
-offset_bottom = 646.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -142.0
+offset_top = -184.0
+offset_right = 86.0
+offset_bottom = -122.0
 text = "EAVESDROP?"
 
 [node name="bubble_two" parent="." instance=ExtResource("5_lffbm")]

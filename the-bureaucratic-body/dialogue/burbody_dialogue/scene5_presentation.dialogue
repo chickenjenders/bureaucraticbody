@@ -29,19 +29,31 @@ Marcus: "Isn't this something that should've been done even earlier?"
 # ─────────────────────────────────────────────
 
 ~ passive_board_setup
-if GameState.outfit == "masc_formal" or GameState.outfit == "masc_casual"
-    => passive_room_masc
-if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
-    => passive_room_fem
+if GameState.outfit == "masc_formal"
+    => passive_room_masc_formal
+if GameState.outfit == "masc_casual"
+    => passive_room_masc_casual
+if GameState.outfit == "fem_formal"
+    => passive_room_fem_formal
+if GameState.outfit == "fem_casual"
+    => passive_room_fem_casual
 
-~ passive_room_masc
+~ passive_room_masc_formal
 Narrator: The room settles. Robert nods. Marcus leans back.
 Narrator: The moment passes without incident.
 Narrator: [wait=0.5]You smoothed it over. You are good at smoothing things over.
 Narrator: You are not sure that is the same as being good at your job — but today, in this room, they appear to be the same thing.
 => board_question
 
-~ passive_room_fem
+~ passive_room_masc_casual
+Narrator: The room settles. Robert nods — just barely.
+Narrator: Marcus leans back. He looks faintly amused.
+Narrator: [wait=0.6]You deferred. You agreed. You smoothed it over.
+Narrator: The suit would have sold it better.
+Narrator: You watch Robert's face calculate whether you defaulted or demurred.
+=> board_question
+
+~ passive_room_fem_formal
 Narrator: The room settles. Robert nods.
 Narrator: Marcus seems satisfied.
 Narrator: [wait=0.6]You are wearing a tailored blazer and you just agreed with a critique that wasn't valid.
@@ -49,29 +61,58 @@ Narrator: You made yourself smaller in the outfit you wore to make yourself bigg
 Narrator: You are aware of this. You say nothing.
 => board_question
 
+~ passive_room_fem_casual
+Narrator: The room settles. Everyone seems comfortable.
+Narrator: Marcus nods. Robert nods.
+Narrator: [wait=0.6]You deferred gracefully. You are wearing a dress, and you agreed, and somehow that reads as agreeable rather than weak.
+Narrator: You made yourself work for what you wanted to accomplish.
+Narrator: You are aware of this. You continue.
+=> board_question
+
 # ─────────────────────────────────────────────
 # CONFIDENT BRANCH — board Q&A
 # ─────────────────────────────────────────────
 
 ~ confident_board_setup
-if GameState.outfit == "masc_formal" or GameState.outfit == "masc_casual"
-    => confident_room_masc
-if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
-    => confident_room_fem
+if GameState.outfit == "masc_formal"
+    => confident_room_masc_formal
+if GameState.outfit == "masc_casual"
+    => confident_room_masc_casual
+if GameState.outfit == "fem_formal"
+    => confident_room_fem_formal
+if GameState.outfit == "fem_casual"
+    => confident_room_fem_casual
 
-~ confident_room_masc
+~ confident_room_masc_formal
 Narrator: A beat of silence. Marcus looks down.
 Narrator: Your manager's expression shifts — just slightly — toward something that might be approval.
 Narrator: [wait=0.5]You said the thing. The room is deciding what to do with it.
 => board_question
 
-~ confident_room_fem
+~ confident_room_masc_casual
+Narrator: A beat of silence. Marcus looks down.
+Narrator: Robert's expression tightens slightly.
+Narrator: [wait=0.6]You pushed back. You're not dressed for pushing back.
+Narrator: The room is noticing the mismatch between the casual and the confrontation.
+Narrator: You said the thing anyway.
+=> board_question
+
+~ confident_room_fem_formal
 Narrator: A pause. Longer than when Marcus said it.
 Narrator: Longer than it would be for other people.
 Narrator: [wait=0.6]You see it happen.
-Narrator: The room is recalibrating. The same correction that would read as competent in another person is reading as something else in you.
+Narrator: The room is recalibrating. The same correction that would read as competent in another person is reading as argumentative in you.
 Narrator: You can feel the difference without being able to name it.
 Narrator: [wait=0.5]That is precisely the design.
+=> board_question
+
+~ confident_room_fem_casual
+Narrator: A pause. Marcus raises an eyebrow.
+Narrator: Your manager blinks.
+Narrator: [wait=0.6]You pushed back. You're wearing a casual dress.
+Narrator: The room is recalibrating — not sure what this contradiction means.
+Narrator: A woman in a floral dress doesn't usually speak to board members like that.
+Narrator: [wait=0.4]But you just did.
 => board_question
 
 # ─────────────────────────────────────────────
@@ -99,12 +140,16 @@ Narrator: [wait=0.4]The room looks at you.
 # ─────────────────────────────────────────────
 
 ~ correct_qa
-if GameState.outfit == "masc_formal" or GameState.outfit == "masc_casual"
-    => correct_masc
-if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
-    => correct_fem
+if GameState.outfit == "masc_formal"
+    => correct_masc_formal
+if GameState.outfit == "masc_casual"
+    => correct_masc_casual
+if GameState.outfit == "fem_formal"
+    => correct_fem_formal
+if GameState.outfit == "fem_casual"
+    => correct_fem_casual
 
-~ correct_masc
+~ correct_masc_formal
 You: "Absolutely — and specifically, the next phase moves into implementation. I've outlined the roadmap in the appendix if the board would like to review."
 Narrator: You addressed the board directly. Your manager pauses.
 Narrator: The board member leans in slightly.
@@ -113,7 +158,15 @@ Narrator: You watched your manager decide whether this was impressive or insubor
 Narrator: You are almost sure it was both.
 => END
 
-~ correct_fem
+~ correct_masc_casual
+You: "Absolutely — and the next phase moves into implementation. I've outlined the roadmap in the appendix if the board wants to review."
+Narrator: You addressed the board directly. Your manager blinks.
+Narrator: [wait=0.6]You didn't ask for permission. You didn't defer.
+Narrator: The casual shirt reads differently now.
+Narrator: Robert's expression is working through whether you overstepped or surprised him.
+=> END
+
+~ correct_fem_formal
 You: "Absolutely — and I'd like to add that the next phase includes specific implementation milestones. The appendix has the full breakdown if the board wants to review."
 Narrator: You addressed the board directly.
 Narrator: Your manager's expression holds very still.
@@ -123,29 +176,61 @@ Narrator: [wait=0.5]The room has not yet decided what to call it.
 Narrator: That is the part that takes your breath away — not what they'll say, but that it is not yet clear what the word will be.
 => END
 
+~ correct_fem_casual
+You: "Yes — and I'd like to add that the next phase includes implementation milestones. The appendix has the details."
+Narrator: You addressed the board directly.
+Narrator: Your manager blinks. The board member glances at Marcus.
+Narrator: [wait=0.7]You spoke past him. You are wearing a floral dress.
+Narrator: The room is processing the mismatch.
+Narrator: You are not supposed to be the kind of person who contradicts the chain of command.
+Narrator: [wait=0.5]And yet, here you are.
+=> END
+
 # ─────────────────────────────────────────────
 # QA — STAY QUIET
 # ─────────────────────────────────────────────
 
 ~ quiet_qa
-if GameState.outfit == "masc_formal" or GameState.outfit == "masc_casual"
-    => quiet_masc
-if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
-    => quiet_fem
+if GameState.outfit == "masc_formal"
+    => quiet_masc_formal
+if GameState.outfit == "masc_casual"
+    => quiet_masc_casual
+if GameState.outfit == "fem_formal"
+    => quiet_fem_formal
+if GameState.outfit == "fem_casual"
+    => quiet_fem_casual
 
-~ quiet_masc
+~ quiet_masc_formal
 You: "That's right. We'll keep pushing."
 Narrator: Clean. Short. Your manager nods. The board member nods.
 Narrator: [wait=0.6]He said it and you confirmed it.
-Narrator: You wonder if the room read that as humble, or as soft.
+Narrator: You wonder if the room read that as humble, or professionally efficient.
 Narrator: [wait=0.4]You'll find out.
 => END
 
-~ quiet_fem
+~ quiet_masc_casual
+You: "That's right. We'll push forward."
+Narrator: Your manager nods. The board member nods.
+Narrator: [wait=0.6]He said it and you confirmed it.
+Narrator: You are wearing jeans and a collared shirt.
+Narrator: You deferred to him without hesitation.
+Narrator: [wait=0.4]The room makes a note.
+=> END
+
+~ quiet_fem_formal
 You: "That's right. We'll keep at it."
 Narrator: The board member nods. The meeting ends.
-Narrator: [wait=0.6]You are wearing a blazer and you just confirmed what your manager said about you instead of saying it yourself.
+Narrator: [wait=0.6]You are wearing a tailored blazer and you just confirmed what your manager said about you instead of saying it yourself.
 Narrator: You chose every element of this outfit to be taken seriously.
 Narrator: And then you agreed when you could have spoken.
 Narrator: [wait=0.5]You stand in the hallway afterward and try to understand why those two things happened in the same day.
+=> END
+
+~ quiet_fem_casual
+You: "That's right. We'll keep at it."
+Narrator: The board member nods. The meeting ends.
+Narrator: [wait=0.6]You are wearing a floral dress and you graciously allowed him his moment.
+Narrator: You deferred, and somehow it reads as kind.
+Narrator: You are not supposed to be the kind of woman who needs the spotlight.
+Narrator: [wait=0.5]At least, not in casual clothes.
 => END

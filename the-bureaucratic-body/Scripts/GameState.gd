@@ -65,8 +65,25 @@ func _apply_progress_delta(score_delta: int) -> void:
 	if score_delta == 0:
 		return
 
-	professionalism = clamp(professionalism + float(score_delta) * 10.0, 0.0, 100.0)
-	anxiety = clamp(anxiety - float(score_delta) * 10.0, 0.0, 100.0)
+	# Determine if current outfit is masculine or feminine
+	var is_masculine: bool = outfit == "masc_formal" or outfit == "masc_casual"
+	var is_feminine: bool = outfit == "fem_formal" or outfit == "fem_casual"
+	
+	# Apply different bar changes based on outfit and choice
+	if is_masculine:
+		# Masculine choices: confident = professionalism up/anxiety down, passive = opposite
+		professionalism = clamp(professionalism + float(score_delta) * 10.0, 0.0, 100.0)
+		anxiety = clamp(anxiety - float(score_delta) * 10.0, 0.0, 100.0)
+	elif is_feminine:
+		if score_delta > 0:
+			# Confident feminine choice: professionalism down, anxiety up (less so)
+			professionalism = clamp(professionalism - 10.0, 0.0, 100.0)
+			anxiety = clamp(anxiety + 5.0, 0.0, 100.0)
+		else:
+			# Passive feminine choice: professionalism up, anxiety up
+			professionalism = clamp(professionalism + 10.0, 0.0, 100.0)
+			anxiety = clamp(anxiety + 10.0, 0.0, 100.0)
+	
 	_emit_stats()
 
 func _emit_stats() -> void:
@@ -90,9 +107,38 @@ func _emit_stats() -> void:
 # This is enforced by the bonus_penalty below.
 
 func get_ending() -> String:
-	var score: int = 0
+	# Explicit mapping rules to match desired tone per outfit and choices.
+	# Rules summary (priority by outfit):
+	# - fem_formal: any confident -> scolded; passive -> mixed (neutral)
+	# - fem_casual: passive -> praised (with dressing note); confident -> scolded
+	# - masc_formal: confident -> praised; passive -> scolded
+	# - masc_casual: confident -> praised; passive -> scolded
+	if outfit == "fem_formal":
+		if interruption_choice == "confident":
+			return "scolded"
+		else:
+			return "mixed"
 
-	# Outfit score
+	if outfit == "fem_casual":
+		if interruption_choice == "passive":
+			return "praised"
+		else:
+			return "scolded"
+
+	if outfit == "masc_formal":
+		if interruption_choice == "confident":
+			return "praised"
+		else:
+			return "scolded"
+
+	if outfit == "masc_casual":
+		if interruption_choice == "confident":
+			return "praised"
+		else:
+			return "scolded"
+
+	# Fallback: use previous numeric approach if outfit is unset or unknown.
+	var score: int = 0
 	match outfit:
 		"masc_formal":
 			score += 3
@@ -103,29 +149,18 @@ func get_ending() -> String:
 		"fem_casual":
 			score += 1
 
-	# Interruption score
 	match interruption_choice:
 		"confident":
 			score += 2
 		"passive":
 			score += 1
 
-	# QA score
 	match qa_choice:
 		"correct":
 			score += 2
 		"quiet":
 			score += 1
 
-	# ── Asymmetry penalty ──────────────────────────────────────────
-	# Feminine outfit + assertive choices = system penalizes harder.
-	# Same confident + correct combo costs fem paths 2 points.
-	# This makes fem_formal + confident + correct -> "mixed" not "praised"
-	# and fem_casual + confident + correct -> "scolded"
-	if (outfit == "fem_formal" or outfit == "fem_casual") and interruption_choice == "confident" and qa_choice == "correct":
-		score -= 2
-
-	# ── Map score to ending ────────────────────────────────────────
 	if score >= 6:
 		return "praised"
 	elif score >= 4:

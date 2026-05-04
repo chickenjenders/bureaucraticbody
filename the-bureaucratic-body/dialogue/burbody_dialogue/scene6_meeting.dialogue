@@ -33,7 +33,7 @@ if GameState.outfit == "fem_casual"
     => praised_fem_casual
 
 ~ praised_masc
-Robert: "Great work today. I mean it. The board was impressed — Okonkwo mentioned you specifically on the way out."
+Robert: "Great work today. I mean it. The board was impressed — Mr. Shields mentioned you specifically on the way out."
 Robert: "That's the kind of thing I want to see more of. Confidence. Owning the room."
 Robert: "You've got good instincts. I want you using them."
 Robert: "Keep doing what you're doing."
@@ -41,14 +41,17 @@ Robert: "Keep doing what you're doing."
 
 ~ praised_fem_formal
 Robert: "Good work today. Very professional. Very composed."
-Robert: "The board responded well to that — to the whole presentation of it."
-Robert: "That kind of polish matters in these rooms. Keep doing that."
+Robert: "The board responded to the presentation — to the surface of it."
+Narrator: The words are measured; the praise is specific and small.
+Narrator: [wait=0.6]You were read as composed. You were not loudly celebrated.
+Narrator: This is not the same as being fully rewarded.
 => reflection_praised_fem_formal
 
 ~ praised_fem_casual
 Robert: "Good content today. The material was solid."
-Robert: "I want to be honest — I'd encourage more attention to the full picture next time. The whole package."
-Robert: "But the work itself? Strong."
+Robert: "I'll be honest — the work stood out, but consider the whole package next time. The room pays attention to presentation."
+Robert: "Also, mind the attire for board settings — dress signals competence here."
+Robert: "But the work itself was strong."
 => reflection_praised_fem_casual
 
 ~ reflection_praised_masc
@@ -94,15 +97,14 @@ if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
 
 ~ mixed_masc
 Robert: "Quick check-in. Today went well overall. The material was strong."
-Robert: "I do want to flag — and this is me looking out for you — in rooms like that, with the board, we want to project decisiveness. A sense that you're in command."
-Robert: "There were moments where you could have been sharper."
-Robert: "It's not a big deal. Just something to be aware of going forward."
+Robert: "A couple of moments could have been sharper in the room — projection matters."
+Robert: "This is something to build on. Keep pushing with the same instincts, polish how you present them."
 => reflection_mixed_masc
 
 ~ mixed_fem
 Robert: "Good work today. I want to check in briefly."
-Robert: "For future board presentations — it might be worth thinking about the full picture. Not just the material. The whole presentation of yourself."
-Robert: "The board has certain expectations. It's not about the work. The work is good. Just something to keep in mind."
+Robert: "For future board presentations — think beyond the slides. The room notices how you present yourself."
+Robert: "This isn't a criticism of the work so much as a note: some choices can make the room resist you. Keep that in mind."
 => reflection_mixed_fem
 
 ~ reflection_mixed_masc
@@ -140,10 +142,9 @@ if GameState.outfit == "fem_casual"
 
 ~ scolded_masc
 Robert: "I want to be direct, because I think that's more useful."
-Robert: "You've got strong material. But today — the way you engaged, or didn't — I'm not sure you're projecting the right energy for this level."
-Robert: "The board noticed."
-Robert: "I need to know that when it counts, you're going to show up. Not just with the work. With the presence. With the confidence to match the title."
-Robert: "I want to give you the opportunity to demonstrate that. But I need to see it."
+Robert: "You've got strong material. But today — your passivity in moments that mattered — made the board question the presence behind the work."
+Robert: "We need you to project more decisiveness. When it counts, show up fully."
+Robert: "I'll give you the opportunity to demonstrate that, but this is a note to take seriously."
 => reflection_scolded_masc
 
 ~ scolded_fem_formal

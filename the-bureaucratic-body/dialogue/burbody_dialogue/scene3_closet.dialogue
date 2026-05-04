@@ -1,22 +1,11 @@
 # scene3_closet.dialogue
-# Scene 3 — Closet (actual outfit selection)
-# Trigger: DialogueManager.show_dialogue_balloon(load("res://dialogue/scene3_closet.dialogue"), "closet_start")
+# Scene 3 — Closet (outfit selection and confirmation)
+# Triggered at start, then branches based on outfit selection
 # Requires GameState autoload with: var outfit = ""
 
 ~ closet_start
-Narrator: You stand in front of your closet.
-- Masculine formal — dark suit, tie, dress shoes
-    do GameState.set_outfit("masc_formal")
-    => masc_formal_confirm
-- Masculine casual — dark slacks, open collar shirt
-    do GameState.set_outfit("masc_casual")
-    => masc_casual_confirm
-- Feminine formal — tailored blazer, trousers, blouse
-    do GameState.set_outfit("fem_formal")
-    => fem_formal_confirm
-- Feminine casual — dress, comfortable and soft
-    do GameState.set_outfit("fem_casual")
-    => fem_casual_confirm
+Narrator: Select your outfit for the day.
+=> END
 
 ~ masc_formal_confirm
 Narrator: A dark suit. A tie you selected because it reads as serious without being aggressive.

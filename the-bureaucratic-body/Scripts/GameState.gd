@@ -11,20 +11,68 @@
 
 extends Node
 
+signal stats_changed(professionalism: float, anxiety: float)
+
 # ── State variables ──────────────────────────────────────────────
-var outfit: String = ""             # "masc_formal" | "masc_casual" | "fem_formal" | "fem_casual"
+var outfit: String = "" # "masc_formal" | "masc_casual" | "fem_formal" | "fem_casual"
 var interruption_choice: String = "" # "passive" | "confident"
-var qa_choice: String = ""           # "correct" | "quiet"
+var qa_choice: String = "" # "correct" | "quiet"
+var professionalism: float = 50.0
+var anxiety: float = 50.0
+var running_score: int = 0
 
 # ── Setters (called as mutations from .dialogue files) ────────────
 func set_outfit(value: String) -> void:
 	outfit = value
+	running_score += _outfit_score(value)
 
 func set_interruption(value: String) -> void:
 	interruption_choice = value
+	var score_delta := _binary_choice_score(value, "confident", "passive")
+	running_score += score_delta
+	_apply_progress_delta(score_delta)
 
 func set_qa(value: String) -> void:
 	qa_choice = value
+	var score_delta := _binary_choice_score(value, "correct", "quiet")
+	running_score += score_delta
+	_apply_progress_delta(score_delta)
+
+func _ready() -> void:
+	_emit_stats()
+
+func _outfit_score(value: String) -> int:
+	match value:
+		"masc_formal":
+			return 2
+		"masc_casual":
+			return 1
+		"fem_formal":
+			return 0
+		"fem_casual":
+			return -1
+		_:
+			return 0
+
+func _binary_choice_score(value: String, praised_value: String, scolded_value: String) -> int:
+	if value == praised_value:
+		return 1
+	if value == scolded_value:
+		return -1
+	return 0
+
+func _apply_progress_delta(score_delta: int) -> void:
+	if score_delta == 0:
+		return
+
+	professionalism = clamp(professionalism + float(score_delta) * 10.0, 0.0, 100.0)
+	anxiety = clamp(anxiety - float(score_delta) * 10.0, 0.0, 100.0)
+	_emit_stats()
+
+func _emit_stats() -> void:
+	Global.professionalism = professionalism
+	Global.anxiety = anxiety
+	stats_changed.emit(professionalism, anxiety)
 
 # ── Ending calculator ─────────────────────────────────────────────
 # Score breakdown:
@@ -90,3 +138,7 @@ func reset() -> void:
 	outfit = ""
 	interruption_choice = ""
 	qa_choice = ""
+	running_score = 0
+	professionalism = 50.0
+	anxiety = 50.0
+	_emit_stats()

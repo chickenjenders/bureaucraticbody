@@ -36,10 +36,10 @@ text = "START PRESENTATION"
 
 [node name="eavesdrop" parent="." instance=ExtResource("3_y6xtf")]
 layout_mode = 0
-offset_left = 368.0
-offset_top = 587.0
-offset_right = 596.0
-offset_bottom = 649.0
+offset_left = 370.0
+offset_top = 584.0
+offset_right = 598.0
+offset_bottom = 646.0
 text = "EAVESDROP?"
 
 [node name="bubble_two" parent="." instance=ExtResource("5_lffbm")]

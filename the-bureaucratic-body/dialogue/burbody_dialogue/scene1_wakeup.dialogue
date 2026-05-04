@@ -3,7 +3,7 @@
 # Trigger from your Godot scene: DialogueManager.show_dialogue_balloon(load("res://dialogue/scene1_wakeup.dialogue"), "wakeup")
 
 ~ wakeup
-Narrator: The ceiling is familiar.
+Narrator: Ah, another performance to endure today.
 Narrator: Tuesday.
 Narrator: You have a quarterly review today. Your department presents to the board this afternoon.
 Narrator: Leadership. Stakeholders. People whose names are on the building.

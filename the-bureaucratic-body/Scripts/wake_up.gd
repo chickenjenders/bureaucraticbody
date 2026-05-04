@@ -7,7 +7,7 @@ func _ready() -> void:
 	start_button.pressed.connect(_on_start_button_pressed)
 	start_button.visible = false
 
-	_wake_dialogue = load("res://dialogue/wake_up.dialogue")
+	_wake_dialogue = load("res://dialogue/burbody_dialogue/scene1_wakeup.dialogue")
 	call_deferred("_init_dialogue")
 
 

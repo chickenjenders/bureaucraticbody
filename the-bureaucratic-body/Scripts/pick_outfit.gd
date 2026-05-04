@@ -7,7 +7,7 @@ func _ready() -> void:
 	choose_outfit_button.pressed.connect(_on_choose_outfit_button_pressed)
 	choose_outfit_button.visible = false
 
-	_pick_outfit_dialogue = load("res://dialogue/wake_up.dialogue")
+	_pick_outfit_dialogue = load("res://dialogue/burbody_dialogue/scene2_outfit_reason.dialogue")
 	call_deferred("_init_dialogue")
 
 func _on_choose_outfit_button_pressed() -> void:
@@ -28,7 +28,7 @@ func _init_dialogue() -> void:
 	if dm:
 		if not dm.dialogue_ended.is_connected(_on_dialogue_ended):
 			dm.dialogue_ended.connect(_on_dialogue_ended)
-		dm.show_dialogue_balloon(_pick_outfit_dialogue, "pick_outfit")
+		dm.show_dialogue_balloon(_pick_outfit_dialogue, "outfit_intro")
 	else:
 		# If DialogueManager still isn't available, show the button so the scene is playable
 		choose_outfit_button.visible = true

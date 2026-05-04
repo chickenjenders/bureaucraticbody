@@ -1,25 +1,30 @@
 # The Bureaucratic Body — Dialogue Manager 3 Files
+
 ## How to plug these into your Godot project
 
 ### File list
-- GameState.gd              — autoload, holds all game state + scoring logic
-- scene1_wakeup.dialogue    — Scene 1: wake up sequence
+
+- GameState.gd — autoload, holds all game state + scoring logic
+- scene1_wakeup.dialogue — Scene 1: wake up sequence
 - scene2_outfit_reason.dialogue — Scene 2: board meeting context narration
-- scene3_closet.dialogue    — Scene 3: outfit picker with branching confirms
+- scene3_closet.dialogue — Scene 3: outfit picker with branching confirms
 - scene4_eavesdrop.dialogue — Scene 4: coworker eavesdrop (bubble-click structure)
 - scene5_presentation.dialogue — Scene 5: coworker interruption + board Q&A
-- scene6_meeting.dialogue   — Scene 6: boss meeting + theory reflection endings
+- scene6_meeting.dialogue — Scene 6: boss meeting + theory reflection endings
 
 ---
 
 ### Step 1 — Add GameState autoload
+
 Project > Project Settings > Autoload
+
 - Path: res://GameState.gd
-- Name: GameState   ← must match exactly, dialogue files reference this name
+- Name: GameState ← must match exactly, dialogue files reference this name
 
 ---
 
 ### Step 2 — Copy .dialogue files
+
 Place all .dialogue files in res://dialogue/ (or wherever you prefer).
 Update the paths in your scene scripts to match.
 
@@ -32,34 +37,34 @@ Each scene script calls DialogueManager like this:
 ```gdscript
 # Scene 1
 DialogueManager.show_dialogue_balloon(
-    load("res://dialogue/scene1_wakeup.dialogue"), "wakeup"
+    load("res://dialogue/burbody_dialogue/scene1_wakeup.dialogue"), "wakeup"
 )
 
 # Scene 2
 DialogueManager.show_dialogue_balloon(
-    load("res://dialogue/scene2_outfit_reason.dialogue"), "outfit_intro"
+    load("res://dialogue/burbody_dialogue/scene2_outfit_reason.dialogue"), "outfit_intro"
 )
 
 # Scene 3
 DialogueManager.show_dialogue_balloon(
-    load("res://dialogue/scene3_closet.dialogue"), "closet_start"
+    load("res://dialogue/burbody_dialogue/scene3_closet.dialogue"), "closet_start"
 )
 
 # Scene 4 — pass the outfit-specific starting title
 # Call _setup first, then bubble titles on each button press
 var setup_title = GameState.outfit + "_setup"
 DialogueManager.show_dialogue_balloon(
-    load("res://dialogue/scene4_eavesdrop.dialogue"), setup_title
+    load("res://dialogue/burbody_dialogue/scene4_eavesdrop.dialogue"), setup_title
 )
 
 # Scene 5
 DialogueManager.show_dialogue_balloon(
-    load("res://dialogue/scene5_presentation.dialogue"), "presentation_start"
+    load("res://dialogue/burbody_dialogue/scene5_presentation.dialogue"), "presentation_start"
 )
 
 # Scene 6
 DialogueManager.show_dialogue_balloon(
-    load("res://dialogue/scene6_meeting.dialogue"), "meeting_start"
+    load("res://dialogue/burbody_dialogue/scene6_meeting.dialogue"), "meeting_start"
 )
 ```
 
@@ -79,7 +84,7 @@ func _ready():
     outfit_key = GameState.outfit  # e.g. "fem_formal"
     # Show setup narration first
     await DialogueManager.show_dialogue_balloon(
-        load("res://dialogue/scene4_eavesdrop.dialogue"),
+        load("res://dialogue/burbody_dialogue/scene4_eavesdrop.dialogue"),
         outfit_key + "_setup"
     )
 
@@ -95,15 +100,15 @@ func _on_bubble_pressed():
     var max_bubbles = {"masc_formal": 4, "masc_casual": 3, "fem_formal": 4, "fem_casual": 4}
     if bubble_index <= max_bubbles[outfit_key]:
         await DialogueManager.show_dialogue_balloon(
-            load("res://dialogue/scene4_eavesdrop.dialogue"), title
+            load("res://dialogue/burbody_dialogue/scene4_eavesdrop.dialogue"), title
         )
     else:
         await DialogueManager.show_dialogue_balloon(
-            load("res://dialogue/scene4_eavesdrop.dialogue"),
+            load("res://dialogue/burbody_dialogue/scene4_eavesdrop.dialogue"),
             outfit_key + "_reflection"
         )
         # Transition to Scene 5 here
-        get_tree().change_scene_to_file("res://scenes/scene5_presentation.tscn")
+        get_tree().change_scene_to_file("res://Scenes/presentation.tscn")
 ```
 
 ---
@@ -115,8 +120,9 @@ That function reads outfit + interruption_choice + qa_choice
 and returns "praised", "mixed", or "scolded".
 
 The asymmetry is built into the score:
-- Masculine outfit + confident + correct  →  praised
-- Feminine outfit  + confident + correct  →  mixed or scolded (penalty applied)
+
+- Masculine outfit + confident + correct → praised
+- Feminine outfit + confident + correct → mixed or scolded (penalty applied)
 - Same choices. Different outcome. That is the argument.
 
 ---
@@ -124,6 +130,7 @@ The asymmetry is built into the score:
 ### Step 6 — Reset for replay
 
 Call GameState.reset() before restarting Scene 1:
+
 ```gdscript
 GameState.reset()
 get_tree().change_scene_to_file("res://scenes/scene1_wakeup.tscn")

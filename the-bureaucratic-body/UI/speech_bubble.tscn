@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cb3cm0ijuv3le" path="res://assets/UI/3.png" id="1_hqh3f"]
 [ext_resource type="Texture2D" uid="uid://db4xy6ikktnup" path="res://assets/UI/4.png" id="2_snkjx"]
-[ext_resource type="Script" path="res://Scripts/speech_bubble.gd" id="3_7m2qk"]
+[ext_resource type="Script" uid="uid://cyqlk88sy7qy1" path="res://Scripts/speech_bubble.gd" id="3_7m2qk"]
 
 [node name="Control" type="TextureButton"]
 anchors_preset = 15

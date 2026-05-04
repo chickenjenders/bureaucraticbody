@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var professionalism_bar: TextureProgressBar = $professionalism
-@onready var anxiety_bar: TextureProgressBar = $anxiety
+@onready var professionalism_bar: TextureProgressBar = $BarsRoot/MarginContainer/BarsRow/ProfessionalismGroup/professionalism
+@onready var anxiety_bar: TextureProgressBar = $BarsRoot/MarginContainer/BarsRow/AnxietyGroup/anxiety
 
 func _ready() -> void:
     _sync_from_state()

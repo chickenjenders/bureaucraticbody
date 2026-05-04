@@ -21,24 +21,22 @@ texture_focused = ExtResource("1_hqh3f")
 script = ExtResource("3_7m2qk")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.3
-anchor_top = 0.7
-anchor_right = 0.7
-anchor_bottom = 0.9
+layout_mode = 0
+offset_left = 92.0
+offset_top = 177.0
+offset_right = 283.0
+offset_bottom = 226.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 text = "*WHISPER*"
 vertical_alignment = 2
 
 [node name="Label2" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.4
-anchor_top = 0.8
-anchor_right = 0.8
-anchor_bottom = 1.0
+layout_mode = 0
+offset_left = 188.0
+offset_top = 262.0
+offset_right = 379.0
+offset_bottom = 311.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 text = "*WHISPER*"

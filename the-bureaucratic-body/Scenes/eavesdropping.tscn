@@ -28,7 +28,7 @@ texture = ExtResource("1_cmsdc")
 
 [node name="Button" parent="." instance=ExtResource("3_y6xtf")]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -37,11 +37,13 @@ offset_left = -144.0
 offset_top = -181.0
 offset_right = 84.0
 offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "START PRESENTATION"
 
 [node name="eavesdrop" parent="." instance=ExtResource("3_y6xtf")]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -50,6 +52,8 @@ offset_left = -142.0
 offset_top = -184.0
 offset_right = 86.0
 offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "EAVESDROP?"
 
 [node name="bubble_two" parent="." instance=ExtResource("5_lffbm")]

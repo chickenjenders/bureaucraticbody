@@ -11,7 +11,8 @@ func _ready() -> void:
 	call_deferred("_init_dialogue")
 
 func _on_replay_button_pressed() -> void:
-	GameState.reset()
+	var GS = get_node("/root/GameState")
+	GS.reset()
 	get_tree().change_scene_to_file("res://Scenes/wake_up.tscn")
 
 func _on_dialogue_ended(resource: Resource) -> void:

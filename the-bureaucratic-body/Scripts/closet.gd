@@ -7,6 +7,8 @@ extends Control
 @onready var suit_w_button: TextureButton = $suitW
 @onready var dress_button: TextureButton = $dress
 
+@onready var GS = get_node("/root/GameState")
+
 var _closet_dialogue: Resource = null
 var _awaiting_outfit_selection: bool = true
 
@@ -36,25 +38,25 @@ func _ready() -> void:
 func _on_suit_m_pressed() -> void:
 	if _awaiting_outfit_selection:
 		_awaiting_outfit_selection = false
-		GameState.set_outfit("masc_formal")
+		GS.set_outfit("masc_formal")
 		_show_outfit_dialogue("masc_formal_confirm")
 
 func _on_collared_pressed() -> void:
 	if _awaiting_outfit_selection:
 		_awaiting_outfit_selection = false
-		GameState.set_outfit("masc_casual")
+		GS.set_outfit("masc_casual")
 		_show_outfit_dialogue("masc_casual_confirm")
 
 func _on_suit_w_pressed() -> void:
 	if _awaiting_outfit_selection:
 		_awaiting_outfit_selection = false
-		GameState.set_outfit("fem_formal")
+		GS.set_outfit("fem_formal")
 		_show_outfit_dialogue("fem_formal_confirm")
 
 func _on_dress_pressed() -> void:
 	if _awaiting_outfit_selection:
 		_awaiting_outfit_selection = false
-		GameState.set_outfit("fem_casual")
+		GS.set_outfit("fem_casual")
 		_show_outfit_dialogue("fem_casual_confirm")
 
 func _show_outfit_dialogue(dialogue_node: String) -> void:

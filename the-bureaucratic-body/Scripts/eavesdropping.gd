@@ -18,7 +18,8 @@ var max_bubbles: Dictionary = {
 }
 
 func _get_valid_outfit_key() -> String:
-	var key := String(GameState.outfit)
+	var GS = get_node("/root/GameState")
+	var key := String(GS.outfit)
 	if key == "" or not max_bubbles.has(key):
 		# Fallback prevents dialogue key assertions when outfit was not set.
 		return "masc_formal"

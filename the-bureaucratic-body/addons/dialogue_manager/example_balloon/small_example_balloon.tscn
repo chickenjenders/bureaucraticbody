@@ -78,7 +78,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
-default_font_size = 8
+default_font_size = 16
 Button/styles/disabled = SubResource("StyleBoxFlat_235ry")
 Button/styles/focus = SubResource("StyleBoxFlat_ufjut")
 Button/styles/hover = SubResource("StyleBoxFlat_fcbqo")

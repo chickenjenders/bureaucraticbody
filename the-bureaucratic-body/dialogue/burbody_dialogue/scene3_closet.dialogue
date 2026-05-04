@@ -27,8 +27,8 @@ Narrator: You have always been told you look the part in this.
 => END
 
 ~ masc_casual_confirm
-Narrator: Dark slacks. A collared shirt, open at the neck.
-Narrator: Clean. Put together, but not formal.
+Narrator: Dark jeans. A collared shirt, open at the neck.
+Narrator: Clean. Put together, but not overly formal.
 Narrator: The kind of thing that reads as confident rather than trying.
 Narrator: [wait=0.5]You glance at yourself. Fine. Good, even.
 Narrator: You tell yourself it doesn't matter what you wear.
@@ -45,7 +45,7 @@ Narrator: You wonder, briefly, if you will be.
 => END
 
 ~ fem_casual_confirm
-Narrator: A dress you like. Comfortable.
+Narrator: A floral dress you like. Comfortable.
 Narrator: The kind of thing that makes you feel like yourself on an ordinary day.
 Narrator: You chose it because you have enough to think about today without your clothes adding to it.
 Narrator: [wait=0.5]You look in the mirror. You look like you.

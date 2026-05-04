@@ -9,11 +9,11 @@
 ~ presentation_start
 Narrator: The room is full.
 Narrator: Board members at the far end. Your colleagues along the sides.
-Narrator: Your manager, D. Hartwell, in the front row.
+Narrator: Your manager, Robert, in the front row.
 Narrator: Your slides are up. You have been presenting for eleven minutes.
 Narrator: [wait=0.5]It is going well.
 Narrator: [wait=0.4]You are mid-sentence when Marcus speaks.
-Marcus: Isn't this something that should've been done even earlier?
+Marcus: "Isn't this something that should've been done even earlier?"
 => interruption_response
 
 ~ interruption_response
@@ -35,14 +35,14 @@ if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
     => passive_room_fem
 
 ~ passive_room_masc
-Narrator: The room settles. Hartwell nods. Marcus leans back.
+Narrator: The room settles. Robert nods. Marcus leans back.
 Narrator: The moment passes without incident.
 Narrator: [wait=0.5]You smoothed it over. You are good at smoothing things over.
 Narrator: You are not sure that is the same as being good at your job — but today, in this room, they appear to be the same thing.
 => board_question
 
 ~ passive_room_fem
-Narrator: The room settles. Hartwell nods.
+Narrator: The room settles. Robert nods.
 Narrator: Marcus seems satisfied.
 Narrator: [wait=0.6]You are wearing a tailored blazer and you just agreed with a critique that wasn't valid.
 Narrator: You made yourself smaller in the outfit you wore to make yourself bigger.
@@ -79,9 +79,9 @@ Narrator: [wait=0.5]That is precisely the design.
 # ─────────────────────────────────────────────
 
 ~ board_question
-Board Member: What a thorough presentation. The work is progressing well. What are the next steps?
+Board Member: "What a thorough presentation. The work is progressing well. What are the next steps?"
 Narrator: Your manager speaks before you can.
-Hartwell: Thank you, sir. The team has worked hard — they'll keep pushing. Isn't that right?
+Robert: "Thank you, sir. The team has worked hard — they'll keep pushing. Isn't that right?"
 Narrator: He looks at you.
 Narrator: [wait=0.4]The room looks at you.
 => qa_response
@@ -105,7 +105,7 @@ if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
     => correct_fem
 
 ~ correct_masc
-You: Absolutely — and specifically, the next phase moves into implementation. I've outlined the roadmap in the appendix if the board would like to review.
+You: "Absolutely — and specifically, the next phase moves into implementation. I've outlined the roadmap in the appendix if the board would like to review."
 Narrator: You addressed the board directly. Your manager pauses.
 Narrator: The board member leans in slightly.
 Narrator: [wait=0.6]You redirected and gave them something new.
@@ -114,7 +114,7 @@ Narrator: You are almost sure it was both.
 => END
 
 ~ correct_fem
-You: Absolutely — and I'd like to add that the next phase includes specific implementation milestones. The appendix has the full breakdown if the board wants to review.
+You: "Absolutely — and I'd like to add that the next phase includes specific implementation milestones. The appendix has the full breakdown if the board wants to review."
 Narrator: You addressed the board directly.
 Narrator: Your manager's expression holds very still.
 Narrator: [wait=0.7]You spoke past him. You are wearing a tailored blazer.
@@ -134,7 +134,7 @@ if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
     => quiet_fem
 
 ~ quiet_masc
-You: That's right. We'll keep pushing.
+You: "That's right. We'll keep pushing."
 Narrator: Clean. Short. Your manager nods. The board member nods.
 Narrator: [wait=0.6]He said it and you confirmed it.
 Narrator: You wonder if the room read that as humble, or as soft.
@@ -142,7 +142,7 @@ Narrator: [wait=0.4]You'll find out.
 => END
 
 ~ quiet_fem
-You: That's right. We'll keep at it.
+You: "That's right. We'll keep at it."
 Narrator: The board member nods. The meeting ends.
 Narrator: [wait=0.6]You are wearing a blazer and you just confirmed what your manager said about you instead of saying it yourself.
 Narrator: You chose every element of this outfit to be taken seriously.

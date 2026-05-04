@@ -5,7 +5,7 @@
 # GameState.get_ending() returns "praised", "mixed", or "scolded" based on combined choices
 
 ~ meeting_start
-Hartwell: Close the door.
+Robert: "Close the door."
 Narrator: You do.
 => route_ending
 
@@ -33,22 +33,22 @@ if GameState.outfit == "fem_casual"
     => praised_fem_casual
 
 ~ praised_masc
-Hartwell: Great work today. I mean it. The board was impressed — Okonkwo mentioned you specifically on the way out.
-Hartwell: That's the kind of thing I want to see more of. Confidence. Owning the room.
-Hartwell: You've got good instincts. I want you using them.
-Hartwell: Keep doing what you're doing.
+Robert: "Great work today. I mean it. The board was impressed — Okonkwo mentioned you specifically on the way out."
+Robert: "That's the kind of thing I want to see more of. Confidence. Owning the room."
+Robert: "You've got good instincts. I want you using them."
+Robert: "Keep doing what you're doing."
 => reflection_praised_masc
 
 ~ praised_fem_formal
-Hartwell: Good work today. Very professional. Very composed.
-Hartwell: The board responded well to that — to the whole presentation of it.
-Hartwell: That kind of polish matters in these rooms. Keep doing that.
+Robert: "Good work today. Very professional. Very composed."
+Robert: "The board responded well to that — to the whole presentation of it."
+Robert: "That kind of polish matters in these rooms. Keep doing that."
 => reflection_praised_fem_formal
 
 ~ praised_fem_casual
-Hartwell: Good content today. The material was solid.
-Hartwell: I want to be honest — I'd encourage more attention to the full picture next time. The whole package.
-Hartwell: But the work itself? Strong.
+Robert: "Good content today. The material was solid."
+Robert: "I want to be honest — I'd encourage more attention to the full picture next time. The whole package."
+Robert: "But the work itself? Strong."
 => reflection_praised_fem_casual
 
 ~ reflection_praised_masc
@@ -93,16 +93,16 @@ if GameState.outfit == "fem_formal" or GameState.outfit == "fem_casual"
     => mixed_fem
 
 ~ mixed_masc
-Hartwell: Quick check-in. Today went well overall. The material was strong.
-Hartwell: I do want to flag — and this is me looking out for you — in rooms like that, with the board, we want to project decisiveness. A sense that you're in command.
-Hartwell: There were moments where you could have been sharper.
-Hartwell: It's not a big deal. Just something to be aware of going forward.
+Robert: "Quick check-in. Today went well overall. The material was strong."
+Robert: "I do want to flag — and this is me looking out for you — in rooms like that, with the board, we want to project decisiveness. A sense that you're in command."
+Robert: "There were moments where you could have been sharper."
+Robert: "It's not a big deal. Just something to be aware of going forward."
 => reflection_mixed_masc
 
 ~ mixed_fem
-Hartwell: Good work today. I want to check in briefly.
-Hartwell: For future board presentations — it might be worth thinking about the full picture. Not just the material. The whole presentation of yourself.
-Hartwell: The board has certain expectations. It's not about the work. The work is good. Just something to keep in mind.
+Robert: "Good work today. I want to check in briefly."
+Robert: "For future board presentations — it might be worth thinking about the full picture. Not just the material. The whole presentation of yourself."
+Robert: "The board has certain expectations. It's not about the work. The work is good. Just something to keep in mind."
 => reflection_mixed_fem
 
 ~ reflection_mixed_masc
@@ -139,26 +139,26 @@ if GameState.outfit == "fem_casual"
     => scolded_fem_casual
 
 ~ scolded_masc
-Hartwell: I want to be direct, because I think that's more useful.
-Hartwell: You've got strong material. But today — the way you engaged, or didn't — I'm not sure you're projecting the right energy for this level.
-Hartwell: The board noticed.
-Hartwell: I need to know that when it counts, you're going to show up. Not just with the work. With the presence. With the confidence to match the title.
-Hartwell: I want to give you the opportunity to demonstrate that. But I need to see it.
+Robert: "I want to be direct, because I think that's more useful."
+Robert: "You've got strong material. But today — the way you engaged, or didn't — I'm not sure you're projecting the right energy for this level."
+Robert: "The board noticed."
+Robert: "I need to know that when it counts, you're going to show up. Not just with the work. With the presence. With the confidence to match the title."
+Robert: "I want to give you the opportunity to demonstrate that. But I need to see it."
 => reflection_scolded_masc
 
 ~ scolded_fem_formal
-Hartwell: I want to talk about today.
-Hartwell: The work is strong — I want to be clear about that. But there were some moments that I think landed the wrong way. With the board, in particular.
-Hartwell: There's a way to advocate for your work that doesn't feel like you're... pushing past the room. Some of the responses felt a little aggressive. Not intentionally, I'm sure.
-Hartwell: I'd love to see you channel that confidence in a way that brings people with you.
+Robert: "I want to talk about today."
+Robert: "The work is strong — I want to be clear about that. But there were some moments that I think landed the wrong way. With the board, in particular."
+Robert: "There's a way to advocate for your work that doesn't feel like you're... pushing past the room. Some of the responses felt a little aggressive. Not intentionally, I'm sure."
+Robert: "I'd love to see you channel that confidence in a way that brings people with you."
 => reflection_scolded_fem_formal
 
 ~ scolded_fem_casual
-Hartwell: I want to be direct, because I think that's more useful than not.
-Hartwell: The work today was technically strong. I'll acknowledge that. But there were choices made in that room that are going to be difficult to walk back.
-Hartwell: The way you engaged with Marcus. The moment with Okonkwo. I'm not saying you were wrong on the facts.
-Hartwell: But there's a way to be right that still costs you. And I think today cost you.
-Hartwell: We may need to have a more formal conversation. I'll have HR reach out to schedule something.
+Robert: "I want to be direct, because I think that's more useful than not."
+Robert: "The work today was technically strong. I'll acknowledge that. But there were choices made in that room that are going to be difficult to walk back."
+Robert: "The way you engaged with Marcus. The moment with Okonkwo. I'm not saying you were wrong on the facts."
+Robert: "But there's a way to be right that still costs you. And I think today cost you."
+Robert: "We may need to have a more formal conversation. I'll have HR reach out to schedule something."
 => reflection_scolded_fem_casual
 
 ~ reflection_scolded_masc

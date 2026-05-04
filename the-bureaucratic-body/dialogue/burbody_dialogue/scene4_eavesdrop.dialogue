@@ -19,20 +19,20 @@ Narrator: Did they just say your name?
 => END
 
 ~ masc_formal_bubble1
-Coworker A: Wow — you can really tell this presentation is a big deal just by the outfit.
-=> END
+Aaron: "Wow — you can really tell this presentation is a big deal just by the outfit."
+
 
 ~ masc_formal_bubble2
-Coworker B: I know, right? I've never seen them so put together.
-=> END
+Hannah: "I know, right? I've never seen them so put together."
+
 
 ~ masc_formal_bubble3
-Coworker A: They should just dress like that every day.
-=> END
+Aaron: "They should just dress like that every day."
+
 
 ~ masc_formal_bubble4
-Narrator: [Laughter from inside the room.]
-=> END
+[Laughter from inside the room.]
+
 
 ~ masc_formal_reflection
 Narrator: You step back from the door.
@@ -47,27 +47,27 @@ Narrator: [wait=0.6]That's the part that stays with you — they were compliment
 ~ masc_casual_setup
 Narrator: You are outside the meeting room.
 Narrator: You can hear voices inside.
-Narrator: [wait=0.4]You should not eavesdrop. That would be unprofessional.
+Narrator: You should not eavesdrop. That would be unprofessional.
 Narrator: [wait=0.6]You pause.
 Narrator: Did they just say your name?
 => END
 
 ~ masc_casual_bubble1
-Coworker A: Is that what they're wearing today? Kind of casual for a board presentation.
-=> END
+Aaron: "Is that what they're wearing today? Kind of casual for a board presentation."
+
 
 ~ masc_casual_bubble2
-Coworker B: I mean — it works for them, right? They've got that thing where they can pull it off.
-=> END
+Hannah: "I mean — it works for them, right? They've got that thing where they can pull it off."
+
 
 ~ masc_casual_bubble3
-Coworker A: Sure. I guess. Just — board day.
-=> END
+Aaron: Sure. I guess. Just — board day.
+
 
 ~ masc_casual_reflection
 Narrator: You step back.
 Narrator: "They've got that thing where they can pull it off."
-Narrator: [wait=0.6]You file that away without knowing what to do with it.
+Narrator: You file that away without knowing what to do with it.
 Narrator: You dressed the way you dressed. You didn't think about it this much before you left the house.
 => END
 
@@ -84,20 +84,20 @@ Narrator: Did they just say your name?
 => END
 
 ~ fem_formal_bubble1
-Coworker A: Very polished today.
-=> END
+Aaron: "... -looks very polished today, right?"
+
 
 ~ fem_formal_bubble2
-Coworker B: Very. Almost too much, don't you think? Like — it's a lot.
-=> END
+Hannah: "Very. Almost too much, don't you think? Like — it's a lot."
+
 
 ~ fem_formal_bubble3
-Coworker A: It's professional.
-=> END
+Aaron: "It's professional."
+
 
 ~ fem_formal_bubble4
-Coworker B: It's trying very hard to be professional. There's a difference.
-=> END
+Hannah: "It's trying very hard to be professional. There's a difference."
+
 
 ~ fem_formal_reflection
 Narrator: You step back from the door.
@@ -120,23 +120,23 @@ Narrator: Did they just say your name?
 => END
 
 ~ fem_casual_bubble1
-Coworker A: They look nice today. Very approachable.
-=> END
+Aaron: "... -looks nice today. Very, um, approachable."
+
 
 ~ fem_casual_bubble2
-Coworker B: Sure, but — board day, though? I'd have gone more formal.
-=> END
+Hannah: "Sure, but for board day, though? I'd have gone more formal."
+
 
 ~ fem_casual_bubble3
-Coworker A: It's just — softer than I'd expect for this kind of meeting.
-=> END
+Aaron: "It's just... flashier than I'd expect for this kind of meeting."
+
 
 ~ fem_casual_bubble4
-Coworker B: I just hope it doesn't read as not taking it seriously.
-=> END
+Hannah: "I just hope it doesn't read as not taking it seriously."
+
 
 ~ fem_casual_reflection
-Narrator: Softer than expected.
+Narrator: Flashier than expected?
 Narrator: You chose this outfit because you had three weeks of hard work to speak for you.
 Narrator: [wait=0.6]You didn't think you needed the clothes to do it too.
 Narrator: You are beginning to understand that was naive.
